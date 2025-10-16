@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Http\Resources;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+
+class BuildingResource extends JsonResource
+{
+    public function toArray(Request $request): array
+    {
+        return [
+            'id' => $this->id,
+            'address' => $this->address,
+            'coordinates' => [
+                'latitude' => (float) $this->latitude,
+                'longitude' => (float) $this->longitude,
+            ],
+            'organizations_count' => $this->whenCounted('organizations'),
+            'created_at' => $this->created_at?->toISOString(),
+            'updated_at' => $this->updated_at?->toISOString(),
+        ];
+    }
+}
