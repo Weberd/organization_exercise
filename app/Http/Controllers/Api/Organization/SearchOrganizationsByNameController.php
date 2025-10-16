@@ -23,9 +23,10 @@ final class SearchOrganizationsByNameController extends Controller
      *         name="name",
      *         in="path",
      *         required=true,
-     *         @OA\Schema(type="string")
+     *         @OA\Schema(type="string"),
+     *         description="Название организации"
      *     ),
-     *     @OA\Response(response=200)
+     *     @OA\Response(response=200, description="Успешный ответ")
      * )
      */
     public function __invoke(string $name): AnonymousResourceCollection

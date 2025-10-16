@@ -19,7 +19,7 @@ final class GetOrganizationsByBuildingController extends Controller
      *     summary="Список всех организаций находящихся в конкретном здании",
      *     tags={"Organizations"},
      *     security={{"apiKey":{}}},
-     *     @OA\Parameter(name="id", in="path", required=true, @OA\Schema(type="integer")),
+     *     @OA\Parameter(name="id", in="path", required=true, @OA\Schema(type="integer"), description="Идентификатор здания"),
      *     @OA\Response(response=200, description="Успешный ответ")
      * )
      */

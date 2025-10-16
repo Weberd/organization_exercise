@@ -23,27 +23,31 @@ final class SearchOrganizationsByGeoRectangleController extends Controller
      * *         name="min_lat",
      * *         in="path",
      * *         required=true,
-     * *         @OA\Schema(type="float")
+     * *         @OA\Schema(type="float"),
+     *           description="Широта левой верхней точки прямоугольника"
      * *     ),
      * *    @OA\Parameter(
      * *         name="max_lat",
      * *         in="path",
      * *         required=true,
-     * *         @OA\Schema(type="float")
+     * *         @OA\Schema(type="float"),
+     *           description="Широта правой нижней точки прямоугольника"
      * *     ),
      * *    @OA\Parameter(
      * *         name="min_lng",
      * *         in="path",
      * *         required=true,
-     * *         @OA\Schema(type="float")
+     * *         @OA\Schema(type="float"),
+     *           description="Долгота левой верхней точки прямоугольника"
      * *     ),
      * *    @OA\Parameter(
      * *         name="max_lng",
      * *         in="path",
      * *         required=true,
-     * *         @OA\Schema(type="float")
+     * *         @OA\Schema(type="float"),
+     *           description="Долгота правой нижней точки прямоугольника"
      * *     ),
-     * *    @OA\Response(response=200)
+     * *    @OA\Response(response=200, description="Успешный ответ")
      * )
      */
     public function __invoke(

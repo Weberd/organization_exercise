@@ -23,21 +23,24 @@ final class SearchOrganizationsByGeoRadiusController extends Controller
      * *         name="lat",
      * *         in="path",
      * *         required=true,
-     * *         @OA\Schema(type="float")
-     * *     ),
-     * *    @OA\Parameter(
+     * *         @OA\Schema(type="float"),
+     *           description="Широта начальной точки"
+     * *   ),
+     * *   @OA\Parameter(
      * *         name="lat",
      * *         in="path",
      * *         required=true,
-     * *         @OA\Schema(type="float")
-     * *     ),
-     * *    @OA\Parameter(
+     * *         @OA\Schema(type="float"),
+     *           description="Долгота начальное точки"
+     * *   ),
+     * *   @OA\Parameter(
      * *         name="raidus",
      * *         in="path",
      * *         required=true,
-     * *         @OA\Schema(type="float")
-     * *     ),
-     * *    @OA\Response(response=200)
+     * *         @OA\Schema(type="float"),
+     *           description="Радиус"
+     * *   ),
+     * *   @OA\Response(response=200, description="Успешный ответ")
      * )
      */
     public function __invoke(float $latitude, float $longitude, float $radius): AnonymousResourceCollection
