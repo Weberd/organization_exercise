@@ -54,12 +54,6 @@ services:
       - laravel
     command: --default-authentication-plugin=mysql_native_password
 
-  redis:
-    image: redis:alpine
-    container_name: laravel_redis
-    networks:
-      - laravel
-
 networks:
   laravel:
     driver: bridge
