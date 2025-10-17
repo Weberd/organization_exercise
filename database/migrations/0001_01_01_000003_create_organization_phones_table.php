@@ -18,8 +18,6 @@ return new class extends Migration
                 ->references('id')
                 ->on('organizations')
                 ->onDelete('cascade');
-
-            $table->index('organization_id');
         });
     }
 

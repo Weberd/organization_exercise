@@ -16,11 +16,9 @@ return new class extends Migration
 
             $table->foreign('building_id')
                 ->references('id')
-                ->on('buildings')
-                ->onDelete('cascade');
+                ->on('buildings');
 
-            $table->index('building_id');
-            $table->index('name');
+            $table->fullText('name');
         });
     }
 

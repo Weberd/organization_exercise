@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -11,12 +12,11 @@ return new class extends Migration
         Schema::create('buildings', function (Blueprint $table) {
             $table->id();
             $table->string('address');
-            $table->decimal('latitude', 10, 8);
-            $table->decimal('longitude', 11, 8);
             $table->timestamps();
-
-            $table->spatialIndex(['latitude', 'longitude']);
         });
+
+        DB::statement('ALTER TABLE buildings ADD COLUMN location POINT NOT NULL');
+        DB::statement('ALTER TABLE buildings ADD SPATIAL INDEX buildings_location_spatialindex (location)');
     }
 
     public function down(): void

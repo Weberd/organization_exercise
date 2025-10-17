@@ -20,8 +20,7 @@ return new class extends Migration
                 ->on('activities')
                 ->onDelete('cascade');
 
-            $table->index('parent_id');
-            $table->index('level');
+            $table->fullText('name');
         });
     }
 
