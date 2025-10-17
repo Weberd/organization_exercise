@@ -22,6 +22,13 @@ class OrganizationRepository
 
     public function getByActivityId(int $activityId): Collection
     {
+        return Organization::whereHas('activities', function ($query) use ($activityId) {
+            $query->where('activities.id', $activityId);
+        })->get();
+    }
+
+    public function searchByActivityWithChildren(int $activityId): Collection
+    {
         $activity = Activity::findOrFail($activityId);
         $activityIds = $activity->getAllChildrenIds();
 
@@ -34,15 +41,6 @@ class OrganizationRepository
         return $organizations;
     }
 
-    public function searchByActivityName(string $activityQuery): Collection
-    {
-        return Organization::whereHas('activities', function ($query) use ($activityQuery) {
-            $query->where('name', 'like', "%{$activityQuery}%");
-        })
-            ->with(['building', 'phones', 'activities'])
-            ->get();
-    }
-
     public function searchByName(string $nameQuery): Collection
     {
         return Organization::where('name', 'like', "%{$nameQuery}%")
@@ -52,7 +50,9 @@ class OrganizationRepository
 
     public function getByBuildingIds(Collection $buildings): Collection
     {
-        return Organization::whereIn('building_id', $buildings)
+        $buildingIds = $buildings->pluck('id');
+
+        return Organization::whereIn('building_id', $buildingIds)
             ->with(['building', 'phones', 'activities'])
             ->get();
     }

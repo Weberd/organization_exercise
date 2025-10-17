@@ -15,7 +15,7 @@ final class SearchOrganizationsByGeoRectangleController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/api/v1/organizations/geo-rectangle/{min_lat}/{max_lat}/{min_lng}/{max_lng}",
+     *     path="/api/v1/organizations/geo-rectangle/{min_lng}/{min_lat}/{max_lng}/{max_lat}",
      *     summary="Список организаций, которые находятся в заданном прямоугольной области относительно указанной точки на карте. список зданий",
      *     tags={"Organizations"},
      *     security={{"apiKey":{}}},
@@ -51,12 +51,12 @@ final class SearchOrganizationsByGeoRectangleController extends Controller
      * )
      */
     public function __invoke(
-        float $minLat,
-        float $maxLat,
         float $minLng,
-        float $maxLng
+        float $maxLat,
+        float $maxLng,
+        float $minLat
     ): AnonymousResourceCollection
     {
-        return OrganizationResource::collection($this->organizationService->searchInRectangle($minLat, $maxLat, $minLng, $maxLng));
+        return OrganizationResource::collection($this->organizationService->searchInRectangle($minLng, $minLat, $maxLng, $maxLat));
     }
 }

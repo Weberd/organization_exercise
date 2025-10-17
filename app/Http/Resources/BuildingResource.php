@@ -13,8 +13,8 @@ class BuildingResource extends JsonResource
             'id' => $this->id,
             'address' => $this->address,
             'coordinates' => [
-                'latitude' => (float) $this->latitude,
                 'longitude' => (float) $this->longitude,
+                'latitude' => (float) $this->latitude,
             ],
             'organizations_count' => $this->whenCounted('organizations'),
             'created_at' => $this->created_at?->toISOString(),

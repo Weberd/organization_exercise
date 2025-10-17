@@ -15,7 +15,7 @@ final class SearchOrganizationsByGeoRadiusController extends Controller
 
     /**
      * @OA\Get(
-     *     path="/api/v1/organizations/geo-circle/{lat}/{lng}/{radius}",
+     *     path="/api/v1/organizations/geo-circle/{lng}/{lat}/{radius}",
      *     summary="Список организаций, которые находятся в заданном радиусе относительно указанной точки на карте. список зданий",
      *     tags={"Organizations"},
      *     security={{"apiKey":{}}},

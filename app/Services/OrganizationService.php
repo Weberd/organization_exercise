@@ -30,9 +30,9 @@ class OrganizationService
         return $this->organizationRepository->getByActivityId($activityId);
     }
 
-    public function searchByActivityName(string $activityQuery): Collection
+    public function searchByActivityWithChildren(int $activityId): Collection
     {
-        return $this->organizationRepository->searchByActivityName($activityQuery);
+        return $this->organizationRepository->searchByActivityWithChildren($activityId);
     }
 
     public function searchByName(string $nameQuery): Collection
@@ -47,13 +47,13 @@ class OrganizationService
     }
 
     public function searchInRectangle(
-        float $minLat,
-        float $maxLat,
         float $minLng,
-        float $maxLng
+        float $minLat,
+        float $maxLng,
+        float $maxLat,
     ): Collection
     {
-        $buildings = $this->buildingRepository->getBuildingsInRectangle($minLat, $maxLat, $minLng, $maxLng);
+        $buildings = $this->buildingRepository->getBuildingsInRectangle($minLng, $minLat, $maxLng, $maxLat);
         return $this->organizationRepository->getByBuildingIds($buildings);
     }
 }
