@@ -12,13 +12,11 @@ class BuildingRepository
         // Используем формулу Haversine для расчета расстояния
         $buildings = Building::selectRaw("
             id,
-            address,
-            location,
             ST_Distance_Sphere(
                 location,
                 POINT(?, ?)
             ) AS distance
-        ", [$latitude, $longitude])
+        ", [$longitude, $latitude])
             ->having('distance', '<=', $radius)
             ->orderBy('distance')
             ->get();
