@@ -1,0 +1,321 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Organization Directory API",
+        "description": "REST API для справочника организаций, зданий и деятельности",
+        "contact": {
+            "email": "support@example.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000",
+            "description": "Development Server"
+        }
+    ],
+    "paths": {
+        "/ap/v1/organizations/{id}": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Вывод информации об организации по её идентификатору",
+                "operationId": "b0cc9b517af0b2b79e6fcb99a1bee4f7",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор организации",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешный ответ"
+                    },
+                    "404": {
+                        "description": "Организация не найдена"
+                    },
+                    "422": {
+                        "description": "Неправильный идентификатор"
+                    }
+                },
+                "security": [
+                    {
+                        "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/organizations/activity/{id}": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Список всех организаций, которые относятся к указанному виду деятельности",
+                "operationId": "523c07526bf4be7bee0de71411d25026",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор вида деятельности",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешный ответ"
+                    },
+                    "422": {
+                        "description": "Неправильный идентификатор"
+                    }
+                },
+                "security": [
+                    {
+                        "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/organizations/building/{id}": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Список всех организаций находящихся в конкретном здании",
+                "operationId": "82d95f91e27b34ab26fb1596d6468c7b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор здания",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешный ответ"
+                    },
+                    "422": {
+                        "description": "Неправильный идентификатор"
+                    }
+                },
+                "security": [
+                    {
+                        "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/organizations/activity/children/{id}": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Искать организации по виду деятельности (включая вложенные)",
+                "operationId": "fc6384dfd7001c4d62b0bfc1e2f4014b",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Идентификатор вида деятельности",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешный ответ"
+                    },
+                    "422": {
+                        "description": "Неправильный идентификатор"
+                    }
+                },
+                "security": [
+                    {
+                        "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/organizations/geo-circle/{lng}/{lat}/{radius}": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Список организаций, которые находятся в заданном радиусе относительно указанной точки на карте. список зданий",
+                "operationId": "faea64a989a9aeee60ea4bca021bdd40",
+                "parameters": [
+                    {
+                        "name": "lat",
+                        "in": "path",
+                        "description": "Широта начальной точки",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "lat",
+                        "in": "path",
+                        "description": "Долгота начальное точки",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "raidus",
+                        "in": "path",
+                        "description": "Радиус",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешный ответ"
+                    },
+                    "422": {
+                        "description": "Неправильные параметры"
+                    }
+                },
+                "security": [
+                    {
+                        "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/organizations/geo-rectangle/{min_lng}/{min_lat}/{max_lng}/{max_lat}": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Список организаций, которые находятся в заданном прямоугольной области относительно указанной точки на карте. список зданий",
+                "operationId": "fbb69a927c6064a33c29760bfeadb3d4",
+                "parameters": [
+                    {
+                        "name": "min_lat",
+                        "in": "path",
+                        "description": "Широта левой верхней точки прямоугольника",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "max_lat",
+                        "in": "path",
+                        "description": "Широта правой нижней точки прямоугольника",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "min_lng",
+                        "in": "path",
+                        "description": "Долгота левой верхней точки прямоугольника",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    },
+                    {
+                        "name": "max_lng",
+                        "in": "path",
+                        "description": "Долгота правой нижней точки прямоугольника",
+                        "required": true,
+                        "schema": {
+                            "type": "number",
+                            "format": "float"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешный ответ"
+                    },
+                    "422": {
+                        "description": "Неправильные параметры"
+                    }
+                },
+                "security": [
+                    {
+                        "apiKey": []
+                    }
+                ]
+            }
+        },
+        "/api/v1/organizations/name/{name}": {
+            "get": {
+                "tags": [
+                    "Organizations"
+                ],
+                "summary": "Поиск организаций по названию",
+                "operationId": "a1b04ed9cc8ac8b8b12f018265064697",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": "Название организации",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Успешный ответ"
+                    },
+                    "422": {
+                        "description": "Невереный шаблон имени"
+                    }
+                },
+                "security": [
+                    {
+                        "apiKey": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "apiKey": {
+                "type": "apiKey",
+                "description": "API Key для авторизации",
+                "name": "X-API-KEY",
+                "in": "header"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Organizations",
+            "description": "Organizations"
+        }
+    ]
+}
