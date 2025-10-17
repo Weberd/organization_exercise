@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Organization;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\OrganizationsByGeoRadiusRequest;
 use App\Http\Resources\OrganizationResource;
 use App\Services\OrganizationService;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
@@ -40,11 +41,13 @@ final class SearchOrganizationsByGeoRadiusController extends Controller
      * *         @OA\Schema(type="float"),
      *           description="Радиус"
      * *   ),
-     * *   @OA\Response(response=200, description="Успешный ответ")
+     * *   @OA\Response(response=200, description="Успешный ответ"),
+     *     @OA\Response(response=422, description="Неправильные параметры")
      * )
      */
-    public function __invoke(float $latitude, float $longitude, float $radius): AnonymousResourceCollection
+    public function __invoke(OrganizationsByGeoRadiusRequest $request): AnonymousResourceCollection
     {
-        return OrganizationResource::collection($this->organizationService->searchInRadius($latitude, $longitude, $radius));
+        $data = $request->validated();
+        return OrganizationResource::collection($this->organizationService->searchInRadius($data['latitude'], $data['longitude'], $data['radius']));
     }
 }

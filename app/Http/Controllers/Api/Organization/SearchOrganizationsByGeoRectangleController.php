@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Organization;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\OrganizationsByGeoRectangleRequest;
 use App\Http\Resources\OrganizationResource;
 use App\Services\OrganizationService;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
@@ -47,16 +48,19 @@ final class SearchOrganizationsByGeoRectangleController extends Controller
      * *         @OA\Schema(type="float"),
      *           description="Долгота правой нижней точки прямоугольника"
      * *     ),
-     * *    @OA\Response(response=200, description="Успешный ответ")
+     * *    @OA\Response(response=200, description="Успешный ответ"),
+     *      @OA\Response(response=422, description="Неправильные параметры")
      * )
      */
-    public function __invoke(
-        float $minLng,
-        float $maxLat,
-        float $maxLng,
-        float $minLat
-    ): AnonymousResourceCollection
+    public function __invoke(OrganizationsByGeoRectangleRequest $request): AnonymousResourceCollection
     {
-        return OrganizationResource::collection($this->organizationService->searchInRectangle($minLng, $minLat, $maxLng, $maxLat));
+        $data = $request->validated();
+
+        return OrganizationResource::collection($this->organizationService->searchInRectangle(
+            $data['min_lng'],
+            $data['min_lat'],
+            $data['max_lng'],
+            $data['max_lat']
+        ));
     }
 }
