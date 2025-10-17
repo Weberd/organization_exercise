@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "de88b28a-e418-4107-b834-47c001efc726",
+		"name": "organization_exercise",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "219182"
+	},
+	"item": [
+		{
+			"name": "get org by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "secret",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{organization_exercise_address}}/api/v1/organizations/1",
+					"host": [
+						"{{organization_exercise_address}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"organizations",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get org by building id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "secret",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{organization_exercise_address}}/api/v1/organizations/building/2",
+					"host": [
+						"{{organization_exercise_address}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"organizations",
+						"building",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get org by activity id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "secret",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{organization_exercise_address}}/api/v1/organizations/activity/3",
+					"host": [
+						"{{organization_exercise_address}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"organizations",
+						"activity",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search org by name",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "secret",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{organization_exercise_address}}/api/v1/organizations/name/Мясо",
+					"host": [
+						"{{organization_exercise_address}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"organizations",
+						"name",
+						"Мясо"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search org by activity with children",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "secret",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{organization_exercise_address}}/api/v1/organizations/activity/children/1",
+					"host": [
+						"{{organization_exercise_address}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"organizations",
+						"activity",
+						"children",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search org by radius",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-API-KEY",
+						"value": "secret",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{organization_exercise_address}}/api/v1/organizations/geo-circle/37.618423/55.751244/5",
+					"host": [
+						"{{organization_exercise_address}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"organizations",
+						"geo-circle",
+						"37.618423",
+						"55.751244",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
