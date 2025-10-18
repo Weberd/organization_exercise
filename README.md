@@ -11,7 +11,7 @@
 
 `docker exec laravel_app php artisan key:generate`
 
-### Установить свой API ключ в .env файле. Параметр X_API_KEY
+### Установить свой API ключ в .env файле. Параметр API_KEY
 
 Можно оставить текущий.
 
