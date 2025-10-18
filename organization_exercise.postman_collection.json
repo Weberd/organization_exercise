@@ -12,7 +12,7 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "X-API-KEY",
+						"key": "API-KEY",
 						"value": "secret",
 						"type": "text"
 					},
@@ -43,7 +43,7 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "X-API-KEY",
+						"key": "API-KEY",
 						"value": "secret",
 						"type": "text"
 					},
@@ -75,7 +75,7 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "X-API-KEY",
+						"key": "API-KEY",
 						"value": "secret",
 						"type": "text"
 					},
@@ -107,7 +107,7 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "X-API-KEY",
+						"key": "API-KEY",
 						"value": "secret",
 						"type": "text"
 					},
@@ -139,7 +139,7 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "X-API-KEY",
+						"key": "API-KEY",
 						"value": "secret",
 						"type": "text"
 					},
@@ -172,7 +172,7 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "X-API-KEY",
+						"key": "API-KEY",
 						"value": "secret",
 						"type": "text"
 					},
@@ -195,6 +195,42 @@
 						"37.618423",
 						"55.751244",
 						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search org by rectangle",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "API-KEY",
+						"value": "secret",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{organization_exercise_address}}/api/v1/organizations/geo-rectangle/37.5800/55.7400/37.6250/55.7550/",
+					"host": [
+						"{{organization_exercise_address}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"organizations",
+						"geo-rectangle",
+						"37.5800",
+						"55.7400",
+						"37.6250",
+						"55.7550",
+						""
 					]
 				}
 			},
