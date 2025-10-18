@@ -39,7 +39,7 @@ final class SearchOrganizationsByGeoRadiusController extends Controller
      * *         in="path",
      * *         required=true,
      * *         @OA\Schema(type="float"),
-     *           description="Радиус"
+     *           description="Радиус в метраз"
      * *   ),
      * *   @OA\Response(response=200, description="Успешный ответ"),
      *     @OA\Response(response=422, description="Неправильные параметры")

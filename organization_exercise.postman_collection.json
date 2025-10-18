@@ -183,7 +183,7 @@
 					}
 				],
 				"url": {
-					"raw": "{{organization_exercise_address}}/api/v1/organizations/geo-circle/37.618423/55.751244/5",
+					"raw": "{{organization_exercise_address}}/api/v1/organizations/geo-circle/37.618423/55.751244/1000",
 					"host": [
 						"{{organization_exercise_address}}"
 					],
@@ -194,7 +194,7 @@
 						"geo-circle",
 						"37.618423",
 						"55.751244",
-						"5"
+						"1000"
 					]
 				}
 			},

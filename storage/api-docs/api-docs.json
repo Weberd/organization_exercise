@@ -181,7 +181,7 @@
                     {
                         "name": "raidus",
                         "in": "path",
-                        "description": "Радиус",
+                        "description": "Радиус в метраз",
                         "required": true,
                         "schema": {
                             "type": "number",
