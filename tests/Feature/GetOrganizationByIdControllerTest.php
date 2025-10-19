@@ -23,6 +23,13 @@ class GetOrganizationByIdControllerTest extends TestCase
             ->assertJson(fn (AssertableJson $json) =>
             $json->where('data.id', $organization->id)
                 ->where('data.name', $organization->name)
+                ->where('data.building.address', $organization->building->address)
+                ->where('data.building.latitude', $organization->building->latitude)
+                ->where('data.building.longitude', $organization->building->longitude)
+                ->where('data.phones', $organization->phones)
+                ->where('data.activities', $organization->activities)
+                ->where('data.created_at', $organization->created_at->toISOString())
+                ->where('data.updated_at', $organization->updated_at->toISOString())
                 ->etc()
             );
     }
@@ -41,7 +48,8 @@ class GetOrganizationByIdControllerTest extends TestCase
         $response
             ->assertNotFound()
             ->assertJson(fn (AssertableJson $json) =>
-            $json->where('message', 'Resource not found')->etc()
+                $json->where('message', 'Resource not found')
+                ->etc()
             );
     }
 
