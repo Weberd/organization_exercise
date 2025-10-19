@@ -16,7 +16,6 @@ class BuildingResource extends JsonResource
                 'longitude' => (float) $this->longitude,
                 'latitude' => (float) $this->latitude,
             ],
-            'organizations_count' => $this->whenCounted('organizations'),
             'created_at' => $this->created_at?->toISOString(),
             'updated_at' => $this->updated_at?->toISOString(),
         ];
