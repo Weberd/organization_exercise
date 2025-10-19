@@ -35,7 +35,19 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Успешный ответ"
+                        "description": "Успешный ответ",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/components/schemas/OrganizationResource"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "404": {
                         "description": "Организация не найдена"
@@ -71,7 +83,23 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Успешный ответ"
+                        "description": "Успешный ответ",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "description": "Список организаций",
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/OrganizationResource"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "422": {
                         "description": "Неправильный идентификатор"
@@ -104,7 +132,23 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Успешный ответ"
+                        "description": "Успешный ответ",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "description": "Список организаций",
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/OrganizationResource"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "422": {
                         "description": "Неправильный идентификатор"
@@ -137,7 +181,23 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Успешный ответ"
+                        "description": "Успешный ответ",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "description": "Список организаций",
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/OrganizationResource"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "422": {
                         "description": "Неправильный идентификатор"
@@ -191,7 +251,23 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Успешный ответ"
+                        "description": "Успешный ответ",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "description": "Список организаций",
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/OrganizationResource"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "422": {
                         "description": "Неправильные параметры"
@@ -255,7 +331,23 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Успешный ответ"
+                        "description": "Успешный ответ",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "description": "Список организаций",
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/OrganizationResource"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "422": {
                         "description": "Неправильные параметры"
@@ -288,7 +380,23 @@
                 ],
                 "responses": {
                     "200": {
-                        "description": "Успешный ответ"
+                        "description": "Успешный ответ",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "data": {
+                                            "description": "Список организаций",
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/OrganizationResource"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
                     },
                     "422": {
                         "description": "Невереный шаблон имени"
@@ -303,6 +411,115 @@
         }
     },
     "components": {
+        "schemas": {
+            "ActivityResource": {
+                "title": "Activity Resource",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 3
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "Мясная продукция"
+                    },
+                    "level": {
+                        "type": "integer",
+                        "example": 2
+                    },
+                    "parent_id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-10-18T13:13:21.000000Z"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-10-18T13:13:21.000000Z"
+                    }
+                },
+                "type": "object"
+            },
+            "BuildingResource": {
+                "title": "Building Resource",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 7
+                    },
+                    "address": {
+                        "type": "string",
+                        "example": "г. Москва, ул. Арбат, д. 53"
+                    },
+                    "longitude": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 37.58878
+                    },
+                    "latitude": {
+                        "type": "number",
+                        "format": "float",
+                        "example": 55.74984
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-10-18T13:13:21.000000Z"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-10-18T13:13:21.000000Z"
+                    }
+                },
+                "type": "object"
+            },
+            "OrganizationResource": {
+                "title": "Organization Resource",
+                "description": "Organization with related building, activities and phones",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "ООО 'Рога и Копыта'"
+                    },
+                    "phones": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "example": "8-923-666-13-13"
+                        }
+                    },
+                    "building": {
+                        "$ref": "#/components/schemas/BuildingResource"
+                    },
+                    "activities": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ActivityResource"
+                        }
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-10-18T13:13:21.000000Z"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-10-18T13:13:21.000000Z"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "securitySchemes": {
             "apiKey": {
                 "type": "apiKey",

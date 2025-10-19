@@ -41,7 +41,18 @@ final class SearchOrganizationsByGeoRadiusController extends Controller
      * *         @OA\Schema(type="float"),
      *           description="Радиус в метраз"
      * *   ),
-     * *   @OA\Response(response=200, description="Успешный ответ"),
+     *     @OA\Response(response=200,
+     * * *       description="Успешный ответ",
+     * *         @OA\JsonContent(
+     * * *             type="object",
+     * * *             @OA\Property(
+     * * *                 property="data",
+     * * *                 type="array",
+     * * *                 description="Список организаций",
+     * * *                 @OA\Items(ref="#/components/schemas/OrganizationResource")
+     * * *             )
+     * * *         )
+     * * *     ),
      *     @OA\Response(response=422, description="Неправильные параметры")
      * )
      */

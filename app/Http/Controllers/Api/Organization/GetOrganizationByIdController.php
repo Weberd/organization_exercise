@@ -21,7 +21,13 @@ final class GetOrganizationByIdController extends Controller
      *     tags={"Organizations"},
      *     security={{"apiKey":{}}},
      *     @OA\Parameter(name="id", in="path", required=true, @OA\Schema(type="integer"), description="Идентификатор организации"),
-     *     @OA\Response(response=200, description="Успешный ответ"),
+     *     @OA\Response(response=200,
+     *          description="Успешный ответ",
+     *         @OA\JsonContent(
+     * *             type="object",
+     * *             @OA\Property(property="data", ref="#/components/schemas/OrganizationResource")
+     * *         )
+     *     ),
      *     @OA\Response(response=404, description="Организация не найдена"),
      *     @OA\Response(response=422, description="Неправильный идентификатор")
      * )

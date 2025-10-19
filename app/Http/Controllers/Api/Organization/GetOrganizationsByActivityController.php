@@ -21,7 +21,18 @@ final class GetOrganizationsByActivityController extends Controller
      *     tags={"Organizations"},
      *     security={{"apiKey":{}}},
      *     @OA\Parameter(name="id", in="path", required=true, @OA\Schema(type="integer"), description="Идентификатор вида деятельности"),
-     *     @OA\Response(response=200, description="Успешный ответ"),
+     *     @OA\Response(response=200,
+     * *       description="Успешный ответ",
+     *         @OA\JsonContent(
+     * *             type="object",
+     * *             @OA\Property(
+     * *                 property="data",
+     * *                 type="array",
+     * *                 description="Список организаций",
+     * *                 @OA\Items(ref="#/components/schemas/OrganizationResource")
+     * *             )
+     * *         )
+     * *     ),
      *     @OA\Response(response=422, description="Неправильный идентификатор")
      * )
      */

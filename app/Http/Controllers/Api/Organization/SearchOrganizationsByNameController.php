@@ -27,7 +27,18 @@ final class SearchOrganizationsByNameController extends Controller
      *         @OA\Schema(type="string"),
      *         description="Название организации"
      *     ),
-     *     @OA\Response(response=200, description="Успешный ответ"),
+     *     @OA\Response(response=200,
+     * * *       description="Успешный ответ",
+     * *         @OA\JsonContent(
+     * * *             type="object",
+     * * *             @OA\Property(
+     * * *                 property="data",
+     * * *                 type="array",
+     * * *                 description="Список организаций",
+     * * *                 @OA\Items(ref="#/components/schemas/OrganizationResource")
+     * * *             )
+     * * *         )
+     * * *     ),
      *     @OA\Response(response=422, description="Невереный шаблон имени")
      * )
      */
