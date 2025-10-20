@@ -26,7 +26,7 @@ class OrganizationByIdRequest extends FormRequest
         ];
     }
 
-    public function validationData()
+    public function validatisonData(): array
     {
         return ['id' => $this->route('id')];
     }
