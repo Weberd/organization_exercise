@@ -5,11 +5,11 @@
 
 ### Скопировать .env файл
 
-`docker exec laravel_app cp .env.example .env`
+`docker exec organization_exercise_app cp .env.example .env`
 
 ### Сгенерировать ключ шифрования
 
-`docker exec laravel_app php artisan key:generate`
+`docker exec organization_exercise_app php artisan key:generate`
 
 ### Установить свой API ключ в .env файле. Параметр API_KEY
 
@@ -17,11 +17,11 @@
 
 ### Мигрировать базу
 
-`docker exec laravel_app php artisan migrate`
+`docker exec organization_exercise_app php artisan migrate`
 
 ### Заполнить базу тестовыми данными
 
-`docker exec laravel_app php artisan db:seed`
+`docker exec organization_exercise_app php artisan db:seed`
 
 ### Приложение
 
