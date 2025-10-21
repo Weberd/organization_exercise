@@ -19,7 +19,7 @@ class BuildingRepository
         ", [$longitude, $latitude])
             ->having('distance', '<=', $radius)
             ->orderBy('distance')
-            ->get();
+            ->get(['id']);
 
         return $buildings;
     }
@@ -36,7 +36,7 @@ class BuildingRepository
                 location
             )',
             [$minLng, $minLat, $maxLng, $maxLat]
-        )->get();
+        )->get(['id']);
 
         return $buildings;
     }
